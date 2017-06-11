@@ -23,6 +23,7 @@ The goals / steps of this project are the following:
 #### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
+
 ### Files Submitted & Code Quality
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
@@ -37,7 +38,7 @@ My project includes the following files:
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing
 ```sh
-python drive.py model.h5
+ python drive.py model.h5
 ```
 
 #### 3. Submission code is usable and readable
@@ -74,13 +75,15 @@ Initially I generated the training data by diving around the track and saving th
 
  My first step was to use a convolution neural network model similar to the Architecture which was used by NVIDIA
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. 
 
-mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting.
+I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. 
+
+This implied that the model was overfitting.
 
 To combat the overfitting, I modified the model by increasing the dropout. Then I tried increased the number of epochs
 
-But the model  was not of much use as it  deviated from the track in a number of occasions.
+But the model  was not of much use as it  deviated from the track on a number of occasions.
 
 Then I used the sample training dataset provided in the course  and followed a similar approach as detailed above
 
@@ -90,16 +93,16 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes
 
-Convolution: 5x5, filter: 24, strides: 2x2, activation: ELU
-Convolution: 5x5, filter: 36, strides: 2x2, activation: ELU
-Convolution: 5x5, filter: 48, strides: 2x2, activation: ELU
-Convolution: 3x3, filter: 64, strides: 1x1, activation: ELU
-Convolution: 3x3, filter: 64, strides: 1x1, activation: ELU
-Drop out (0.5)
-Fully connected: neurons: 100, activation: ELU
-Fully connected: neurons: 50, activation: ELU
-Fully connected: neurons: 10, activation: ELU
-Fully connected: neurons: 1 (output)
+* Convolution: 5x5, filter: 24, strides: 2x2, activation: ELU
+* Convolution: 5x5, filter: 36, strides: 2x2, activation: ELU
+* Convolution: 5x5, filter: 48, strides: 2x2, activation: ELU
+* Convolution: 3x3, filter: 64, strides: 1x1, activation: ELU
+* Convolution: 3x3, filter: 64, strides: 1x1, activation: ELU
+* Drop out (0.5)
+* Fully connected: neurons: 100, activation: ELU
+* Fully connected: neurons: 50, activation: ELU
+* Fully connected: neurons: 10, activation: ELU
+* Fully connected: neurons: 1 (output)
 
 #### 3. Creation of the Training Set & Training Process
 
