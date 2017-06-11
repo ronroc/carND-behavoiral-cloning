@@ -11,13 +11,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image2]: ./examples/first.jpg "Grayscaling"
+[image3]: ./examples/second.jpg "Recovery Image"
+[image4]: ./examples/third.jpg "Recovery Image"
 
 ### Rubric Points
 #### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -75,9 +71,9 @@ Initially I generated the training data by diving around the track and saving th
 
  My first step was to use a convolution neural network model similar to the Architecture which was used by NVIDIA
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. 
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set.
 
-I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. 
+I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set.
 
 This implied that the model was overfitting.
 
@@ -110,24 +106,19 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center These images show what a recovery looks like starting from ... :
 
 ![alt text][image3]
 ![alt text][image4]
-![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
+Since the training data which I generated did not help in training a robust model, sample dataset given in the course was used
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+After the collection process, I had 8037 number of left, center and right camera images and the steering angle which was used as inputs
 
-![alt text][image6]
-![alt text][image7]
+Preprocessing of the data did not help to improve the accuracy. Methods used / tried can be found in utils.py
 
-Etc ....
+I finally randomly shuffled the data set and put 0.2% of the data into a validation set.
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 10 which was obtained after a few iterations. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set.
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+Disclosure - Methods in utils.py are forked from Siraj Raval github repo https://github.com/llSourcell
